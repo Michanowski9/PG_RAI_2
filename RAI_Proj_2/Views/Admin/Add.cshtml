@@ -1,0 +1,17 @@
+﻿@model RAI_Proj_2.Models.User
+
+@{
+	ViewData["Title"] = "Add User Page";
+}
+
+<div>
+	<h4>ADD USER</h4>
+	<form asp-action="Add">
+		<div>
+			<labe>Login:</label>
+			<input asp-for="login"/>
+			<br/>
+			<input type="submit" value="Create User" />
+		</div>
+	</form>
+</div>

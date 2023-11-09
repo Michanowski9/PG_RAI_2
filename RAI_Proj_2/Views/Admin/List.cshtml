@@ -1,0 +1,55 @@
+﻿@model List<RAI_Proj_2.Models.User>
+
+@{
+	ViewData["Title"] = "List Page";
+}
+
+<div>
+	<table class="table">
+		<thead>
+			<tr>
+				<th>
+					Login
+				</th>
+				<th>
+					Creation Time
+				</th>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody>
+			@foreach (var item in Model)
+			{
+				<tr>
+					<td>
+						@Html.DisplayFor(modelItem => item.login)
+					</td>
+					<td>
+						@Html.DisplayFor(modelItem => item.creationTime)
+					</td>
+					<td>
+						@if (item.isAdmin == false)
+						{
+							<form asp-controller="Admin" asp-action="Delete" asp-route-login="@item.login">
+								<input type="submit" value="Delete" />
+							</form>
+						}
+						else
+						{
+							<div>
+								(Admin)
+							</div>
+						}
+					</td>
+				</tr>
+			}
+			<tr>
+				<td>
+					<a asp-area="" asp-controller="Admin" asp-action="Add">Add User</a>
+				</td>
+				<td></td>
+				<td></td>
+			</tr>
+		</tbody>
+	</table>
+</div>

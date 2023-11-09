@@ -1,0 +1,17 @@
+﻿@model RAI_Proj_2.Models.User
+
+@{
+	ViewData["Title"] = "Log in Page";
+}
+
+<div>
+	<h4>LOG IN</h4>
+	<form asp-action="LogIn">
+		<div>
+			<labe>Login:</label>
+			<input asp-for="login"/>
+			<br/>
+			<input type="submit" value="Log in" />
+		</div>
+	</form>
+</div>

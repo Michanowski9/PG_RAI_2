@@ -1,0 +1,18 @@
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
+
+@{
+	ViewData["Title"] = @Localizer["Title"];
+	var culture = Context.Session.GetString("Culture");
+	if (culture != null)
+	{
+		Thread.CurrentThread.CurrentCulture = System.Globalization.CultureInfo.GetCultureInfo(culture);
+		Thread.CurrentThread.CurrentUICulture = System.Globalization.CultureInfo.GetCultureInfo(culture);
+	}
+}
+
+
+<div class="text-center">
+	<h1 class="display-4">@Localizer["Welcome"]</h1>
+	<p>@Localizer["Author"]: Michał Soja 175793</p>
+</div>

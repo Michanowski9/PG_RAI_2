@@ -1,0 +1,56 @@
+﻿@model RAI_Proj_2.Models.User
+
+@{
+	ViewData["Title"] = "List Page";
+}
+
+<div>
+	<table class="table">
+		<thead>
+			<tr>
+				<th>
+					Login
+				</th>
+				<th>
+					Creation Time
+				</th>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody>
+			@foreach (var item in Model.friends)
+			{
+				<tr>
+					<td>
+						@Html.DisplayFor(modelItem => item.login)
+					</td>
+					<td>
+						@Html.DisplayFor(modelItem => item.creationTime)
+					</td>
+					<td>
+						<form asp-controller="User" asp-action="Delete" asp-route-login="@item.login">
+							<input type="submit" value="Delete" />
+						</form>
+					</td>
+				</tr>
+			}
+			<tr>
+				<td>
+					<a asp-area="" asp-controller="User" asp-action="Add">Add User</a>
+				</td>
+				<td></td>
+				<td></td>
+			</tr>
+		</tbody>
+	</table>
+	<form asp-controller="User" asp-action="Import" method="post" enctype="multipart/form-data">
+		<label>Filename</label>
+		<input type="file" id="myFile" name="postedFile" class="form-control" />
+		<div>
+			<input type="submit" value="Import" />
+		</div>
+	</form>
+	<form asp-controller="User" asp-action="Export" method="post">
+		<input type="submit" value="Export" />
+	</form>
+</div>

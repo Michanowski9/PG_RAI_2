@@ -1,0 +1,17 @@
+﻿@{
+	ViewData["Title"] = "Add Friend Result Page";
+	var success = ViewBag.Success;
+}
+
+<div>
+	<h1>FriendManageResult</h1>
+
+	@if (success)
+	{
+		<p>Succeded</p>
+	}
+	else if (!success)
+	{
+		<p>Failed</p>
+	}
+</div>
